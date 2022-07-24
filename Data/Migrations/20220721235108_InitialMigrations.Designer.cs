@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Unidades_De_Saude.Data;
 
@@ -11,9 +12,10 @@ using Unidades_De_Saude.Data;
 namespace Unidades_De_Saude.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220721235108_InitialMigrations")]
+    partial class InitialMigrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -278,35 +280,6 @@ namespace Unidades_De_Saude.Data.Migrations
                     b.ToTable("Medico");
                 });
 
-            modelBuilder.Entity("Unidades_De_Saude.Data.Entities.Medico_Especialidade", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
-
-                    b.Property<DateTime>("created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("id_especialidade")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_medico")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("updated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("id_especialidade");
-
-                    b.HasIndex("id_medico");
-
-                    b.ToTable("medico_especialidade");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -356,25 +329,6 @@ namespace Unidades_De_Saude.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Unidades_De_Saude.Data.Entities.Medico_Especialidade", b =>
-                {
-                    b.HasOne("Unidades_De_Saude.Data.Entities.Especialidades", "Especialidadecs")
-                        .WithMany()
-                        .HasForeignKey("id_especialidade")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Unidades_De_Saude.Data.Entities.Medico", "Medico")
-                        .WithMany()
-                        .HasForeignKey("id_medico")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Especialidadecs");
-
-                    b.Navigation("Medico");
                 });
 #pragma warning restore 612, 618
         }

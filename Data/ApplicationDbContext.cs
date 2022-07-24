@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Unidades_De_Saude.Data.Entities;
+using Unidades_De_Saude.ModelViewModel;
 
 namespace Unidades_De_Saude.Data
 {
@@ -12,5 +13,7 @@ namespace Unidades_De_Saude.Data
         }
         DbSet<Medico> Medicos { get; set; }
         DbSet<Especialidades> Especialidades { get; set; }
+        DbSet<Medico_Especialidade> Medico_Especialidades { get; set; }
+        public DbSet<Unidades_De_Saude.ModelViewModel.MedicoViewModel>? MedicoViewModel { get; set; }
     }
 }
