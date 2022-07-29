@@ -11,7 +11,31 @@ namespace Unidades_De_Saude.Repositories.Interfaces
             _applicationDb = applicationDb;
         }
 
+        public void AddEspecialidade(Especialidades especialidades)
+        {
+            _applicationDb.Add(especialidades);
+            _applicationDb.SaveChanges();
+        }
 
+        public void DeleteEspecialidade(int id)
+        {
+            var especialidade = _applicationDb.Set<Especialidades>().FirstOrDefault(e => e.id == id);
+            especialidade.situation = Utilites.HelpersEnum.Situation.Deleted;
+        }
 
+        public Especialidades GetEspecialidade(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Especialidades> GetEspecialidades()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateEspecialidade(Especialidades especialidades)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
