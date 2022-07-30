@@ -1,4 +1,5 @@
-﻿using Unidades_De_Saude.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Unidades_De_Saude.Data;
 using Unidades_De_Saude.Data.Entities;
 
 namespace Unidades_De_Saude.Repositories.Interfaces
@@ -21,21 +22,25 @@ namespace Unidades_De_Saude.Repositories.Interfaces
         {
             var especialidade = _applicationDb.Set<Especialidades>().FirstOrDefault(e => e.id == id);
             especialidade.situation = Utilites.HelpersEnum.Situation.Deleted;
+
+            _applicationDb.Entry(especialidade).State = EntityState.Modified;
+            _applicationDb.SaveChanges();
         }
 
         public Especialidades GetEspecialidade(int id)
         {
-            throw new NotImplementedException();
+            return _applicationDb.Set<Especialidades>().FirstOrDefault(a=> a.id == id);
         }
 
         public List<Especialidades> GetEspecialidades()
         {
-            throw new NotImplementedException();
+            return _applicationDb.Set<Especialidades>().ToList();
         }
 
         public void UpdateEspecialidade(Especialidades especialidades)
         {
-            throw new NotImplementedException();
+            _applicationDb.Entry(especialidades).State = EntityState.Modified;
+            _applicationDb.SaveChanges();
         }
     }
 }

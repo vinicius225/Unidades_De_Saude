@@ -8,6 +8,8 @@ html {
   }
 }
 
+
+
 html {
   position: relative;
   min-height: 100%;
@@ -15,4 +17,15 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+
+.color-header {
+    background-color: rgb(18 68 139);
+}
+.logo-site {
+    width: 100px;
+    height: 50px;
+    color: white;
+    filter: sepia(100%);
 }
