@@ -15,5 +15,6 @@ namespace Unidades_De_Saude.Data
         DbSet<Especialidades> Especialidades { get; set; }
         DbSet<Medico_Especialidade> Medico_Especialidades { get; set; }
         public DbSet<Unidades_De_Saude.ModelViewModel.MedicoViewModel>? MedicoViewModel { get; set; }
+        public DbSet<Unidades_De_Saude.ModelViewModel.EspecialidadesViewModel>? EspecialidadesViewModel { get; set; }
     }
 }

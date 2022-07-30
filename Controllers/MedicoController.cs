@@ -20,6 +20,13 @@ namespace Unidades_De_Saude.Controllers
             MedicoViewModel model = new MedicoViewModel();          
             return View(model.GetListDatabase(medicos.ToList()));
         }
+        public IActionResult EspecialidadesIndex()
+        {
+            EspecialidadesViewModel especialidades = new EspecialidadesViewModel();
+            var objs = _medicoRepository.GetEspecialidades();
+
+            return View(especialidades.GetListDatabase(objs));
+        }
         public IActionResult Create()
         {
             return View();
