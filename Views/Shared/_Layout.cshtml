@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Unidades_De_Saude.styles.css" asp-append-version="true" />
+
+     
+  <script src="https://cdn.tiny.cloud/1/w9zni7i4e65jai01w4bjyahbi06q8aajvw6lnbgbm87f5b4t/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light   color-header border-bottom box-shadow mb-1">
             <div class="container-fluid">
                 <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img class="logo-site" src="img/centros-de-saude.png"/>
+                    <img class="logo-site" src="~/img/centros-de-saude.png" />
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -26,7 +29,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-light " asp-area="" asp-controller="Medico" asp-action="Index">Medicos</a>
                         </li>
-                        <li class="nav-item"                            <a class="nav-link  text-light" asp-area="" asp-controller="Medico" asp-action="EspecialidadesIndex">Especialidades</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " asp-area="" asp-controller="Medico" asp-action="EspecialidadesIndex">Especialidades</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -39,10 +43,10 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Unidades de Saude - <b>Dados do sistemas são apenas para estudos didaticos</b>
+    <footer>
+        <div class="text-center p-3 footer" >
+            <a  class="pb-0 mb-10" href="https://github.com/vinicius225">Vinicius Guilherme © @DateTime.Now.ToString("yyyy")</a> 
+             
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

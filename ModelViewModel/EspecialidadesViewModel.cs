@@ -14,7 +14,9 @@ namespace Unidades_De_Saude.ModelViewModel
         public string Descricao { get; set; } 
         public void GetDatabase(Especialidades obj)
         {
-            throw new NotImplementedException();
+            this.Id = obj.id;
+            this.Nome = obj.nome;
+            this.Descricao = obj.descricao;
         }
 
         public object GetListDatabase(List<Especialidades> obj)
