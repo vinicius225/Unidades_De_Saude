@@ -3,7 +3,7 @@ using Unidades_De_Saude.Data;
 
 namespace Unidades_De_Saude.Repositories.Interfaces
 {
-    public class RepositoryBase<TEntity>  : IRepositoryBase<TEntity> where TEntity : class 
+    public abstract class RepositoryBase<TEntity>  : IRepositoryBase<TEntity> where TEntity : class 
     {
         private readonly ApplicationDbContext _applicationDb;
 

@@ -3,7 +3,7 @@ using static Unidades_De_Saude.Utilites.HelpersEnum;
 
 namespace Unidades_De_Saude.Data.Entities
 {
-    public class EntityBase
+    public abstract class EntityBase
     {
         [Key]
         public int id { get; set; }
